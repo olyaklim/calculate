@@ -1,0 +1,101 @@
+﻿<!-- Створити калькулятор з двома полями для вводу (лівий & правий) значень і вибором операції над цими значеннями (+ - * / % log() ....) 
+	Результат виводити на екран + вставляти його в ліве поле для проведення наступних операції. Для того, щоб отримати попереднє значення записувати його в скрите поле або в глобальний масив $GLOBAL -->
+
+	<!DOCTYPE HTML>
+	<html lang="ru">
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<title>tour</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- Bootstrap -->
+		<link href="stylesheet/bootstrap.min.css" rel="stylesheet">
+		<style> 
+			.decimal-group {
+				display: none;
+			}
+			.option-group {
+				background: #f3f3f3;
+				padding: 9px 19px;
+				border-radius: 4px;
+			}
+			.calculator {
+				border: 2px solid #66b8ff;
+			    padding: 5px 22px;
+			    border-radius: 3px;
+			    margin-top: 20px;
+			}
+			.calculator h1 {
+				margin-bottom: 20px;
+			}
+		</style>
+	</head>
+	<html>
+	<body>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-7">
+					<div class="calculator">
+						
+						<h1>Калькулятор:5</h1>
+
+						<form id="form" method="post" class="form-inline">
+							<div class="form-group">
+								<input class="form-control" type="number" name="value-left" required  placeholder="число" value="1" min="1" step="1">
+							</div>
+
+							<select id="operation" class="form-control" required size = "1" name = "operation">
+								<option selected value = "plus">+</option>
+								<option value = "minus">-</option>
+								<option value = "mnoj">*</option>
+								<option value = "del">÷</option>
+								<option value = "log">log</option>
+							</select>
+
+							<div class="form-group">
+								<input class="form-control" type="number" name="value-right" required  placeholder="число" value="1" min="1" step="1">
+							</div>				
+
+							<button type="submit" value="send" class="btn btn-success">=</button>
+
+							<button type="reset" value="send" class="btn btn-danger">C</button>
+
+							<br><br>
+							<div class="option-group">
+								<div class="checkbox">
+									<label><input id="rounding" type="checkbox" name="rounding"> Округление</label>
+								</div>	
+
+								<div class="decimal-group">
+									<label class="control-label" for="count-decimal">Количество десятичных знаков:</label>
+									<input id="count-decimal" class="form-control" type="number" name="count-decimal" required  placeholder="Кол-во дней" value="1" min="1" step="1">
+								</div>			
+							</div>
+
+						</form>
+
+						<br>
+						<h2 id="result"></h2>
+					</div>
+				</div>	
+			</div>
+		</div>	
+
+		<script>
+
+		$(function() {
+			$('#rounding').on('change', function() {
+
+				$('.decimal-group').toggle();
+			})
+		});
+
+
+	</script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<script src="script.js"></script>
+
